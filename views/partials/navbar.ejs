@@ -1,0 +1,28 @@
+<nav class="navbar">
+  <div class="navbar-logo">
+    <a href="/">
+      <img src="/images/imagelogo.png" alt="Email Reminder Logo" class="logo">
+      
+    </a>
+  </div>
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+  <label for="nav-toggle" class="nav-toggle-label" aria-label="Open navigation">
+    <span></span>
+  </label>
+  <ul class="navbar-links">
+    <% if (isAuthenticated) { %>
+      <li><a href="/dashboard"><i class="fa fa-home"></i> Dashboard</a></li>
+      <li><a href="/reminders"><i class="fa fa-bell"></i> Reminders</a></li>
+      <li><a href="/profile"><i class="fa fa-user"></i> Profile</a></li>
+      <li><a href="/logout"><i class="fa fa-sign-out-alt"></i> Logout</a></li>
+      <li class="nav-user">
+        <i class="fa fa-user-circle"></i>
+        <%= user ? user.name : '' %>
+      </li>
+    <% } else { %>
+      <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+      <li><a href="/login"><i class="fa fa-sign-in-alt"></i> Login</a></li>
+      <li><a href="/register"><i class="fa fa-user-plus"></i> Register</a></li>
+    <% } %>
+  </ul>
+</nav>

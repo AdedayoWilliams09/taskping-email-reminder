@@ -1,0 +1,36 @@
+<section class="reminder-form-section">
+  <div class="reminder-form-container">
+    <h1>Create Reminder</h1>
+    <%- include('../partials/alerts', { errors: errors }) %>
+    <form action="/reminders/create" method="POST" class="reminder-form">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" value="<%= oldInput.title || '' %>" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea name="description" id="description"><%= oldInput.description || '' %></textarea>
+      </div>
+      <div class="form-group">
+        <label for="dateTime">Date & Time</label>
+        <input type="datetime-local" name="dateTime" id="dateTime" value="<%= oldInput.dateTime || '' %>" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Send To Email</label>
+        <input type="email" name="email" id="email" value="<%= oldInput.email || '' %>" required>
+      </div>
+      <div class="form-group">
+        <label for="repeat">Repeat</label>
+        <select name="repeat" id="repeat">
+          <option value="none" <%= oldInput.repeat === 'none' ? 'selected' : '' %>>None</option>
+          <option value="daily" <%= oldInput.repeat === 'daily' ? 'selected' : '' %>>Daily</option>
+          <option value="weekly" <%= oldInput.repeat === 'weekly' ? 'selected' : '' %>>Weekly</option>
+          <option value="monthly" <%= oldInput.repeat === 'monthly' ? 'selected' : '' %>>Monthly</option>
+          <option value="yearly" <%= oldInput.repeat === 'yearly' ? 'selected' : '' %>>Yearly</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Create</button>
+      <a href="/reminders" class="btn btn-secondary">Cancel</a>
+    </form>
+  </div>
+</section>

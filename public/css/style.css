@@ -1,0 +1,625 @@
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  margin: 0;
+  background: #f8f9fa;
+  color: #222;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2563eb;
+  padding: 0.5rem 2rem;
+  color: #fff;
+  position: relative;
+}
+
+.navbar-logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+}
+
+.logo {
+  width: 75px;
+  height: 75px;
+  margin-right: 0.5rem;
+}
+
+.app-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.navbar-links li a:hover {
+  color: #c7d2fe;
+}
+
+/* Hamburger menu for mobile */
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: none;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+
+
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  background: #fff;
+  height: 3px;
+  width: 100%;
+  border-radius: 2px;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content: '';
+  position: absolute;
+}
+
+.nav-toggle-label span::before {
+  top: -8px;
+}
+
+.nav-toggle-label span::after {
+  top: 8px;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  .navbar-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #2563eb;
+    flex-direction: column;
+    width: 200px;
+    display: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 10;
+  }
+  .navbar-links li {
+    margin: 1rem 0;
+    text-align: right;
+  }
+  .nav-toggle:checked + .nav-toggle-label + .navbar-links {
+    display: flex;
+  }
+  .nav-toggle-label {
+    display: block;
+  }
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%);
+  color: #fff;
+  padding: 3rem 1rem 2rem 1rem;
+  text-align: center;
+}
+
+.hero-logo {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.highlight {
+  color: #fbbf24;
+}
+
+.intro {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  margin: 0.5rem 0;
+}
+
+.btn-primary {
+  background: #fbbf24;
+  color: #222;
+}
+
+.btn-primary:hover {
+  background: #f59e42;
+  color: #fff;
+}
+
+.btn-secondary {
+  background: #fff;
+  color: #2563eb;
+  border: 2px solid #2563eb;
+}
+
+.btn-secondary:hover {
+  background: #2563eb;
+  color: #fff;
+}
+
+/* Features Section */
+.features {
+  background: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.features h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.features-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.feature-item {
+  background: #f1f5f9;
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 220px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  color: #2563eb;
+  margin-bottom: 0.5rem;
+}
+
+.feature-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Error Section */
+.error-section {
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.error-content h1 {
+  font-size: 2rem;
+  color: #ef4444;
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+  background: #2563eb;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
+
+.footer-content {
+  font-size: 1rem;
+}
+
+/* Accessibility */
+img, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Auth Forms */
+.auth-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  background: #f8fafc;
+}
+
+.auth-form-container {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.auth-logo {
+  width: 60px;
+  margin-bottom: 1rem;
+}
+
+.auth-form-container h1 {
+  margin-bottom: 1.5rem;
+  color: #2563eb;
+}
+
+.form-group textarea{
+  resize: none;
+  height: 100px;
+  width: 80%;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+  text-align: left;
+
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+  color: #222;
+  
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.form-group input:focus {
+  border-color: #2563eb;
+}
+
+.form-link {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.form-link a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.alert {
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.alert-success {
+  background: #d1fae5;
+  color: #065f46;
+  border: 1px solid #10b981;
+}
+
+.alert-error {
+  background: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #ef4444;
+}
+
+.alert ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+@media (max-width: 500px) {
+  .auth-form-container {
+    padding: 1rem;
+  }
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2563eb;
+  padding: 0.5rem 2rem;
+  color: #fff;
+  position: relative;
+}
+
+.navbar-logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 0.5rem;
+}
+
+.app-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.navbar-links li a:hover {
+  color: #c7d2fe;
+}
+
+.nav-user {
+  font-weight: bold;
+  color: #fbbf24;
+  margin-left: 1rem;
+}
+
+@media (max-width: 768px) {
+  .navbar-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #2563eb;
+    flex-direction: column;
+    width: 200px;
+    display: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 10;
+  }
+  .navbar-links li {
+    margin: 1rem 0;
+    text-align: right;
+  }
+  .nav-toggle:checked + .nav-toggle-label + .navbar-links {
+    display: flex;
+  }
+  .nav-toggle-label {
+    display: block;
+  }
+}
+
+/* Dashboard */
+.dashboard-section {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+}
+
+.dashboard-header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-quote {
+  font-size: 1.1rem;
+  color: #2563eb;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.dashboard-search input[type="text"] {
+  padding: 0.6rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+}
+
+.dashboard-reminders h2 {
+  margin-bottom: 1rem;
+}
+
+.no-reminders {
+  color: #b91c1c;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 600px) {
+  .dashboard-section {
+    padding: 1rem;
+  }
+  .dashboard-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.reminder-card {
+  background: #f1f5f9;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.reminder-card.upcoming { border-left: 5px solid #2563eb; }
+.reminder-card.completed { border-left: 5px solid #10b981; }
+.reminder-card.missed { border-left: 5px solid #ef4444; }
+.reminder-info h3 { margin: 0 0 0.5rem 0; }
+.reminder-actions { display: flex; gap: 0.5rem; }
+.status { font-weight: bold; text-transform: capitalize; }
+.status.upcoming { color: #2563eb; }
+.status.completed { color: #10b981; }
+.status.missed { color: #ef4444; }
+
+.profile-section {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+}
+.profile-info {
+  margin-bottom: 2rem;
+}
+.profile-forms {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.profile-form h2 {
+  margin-bottom: 1rem;
+}
+.profile-form .form-group {
+  margin-bottom: 1rem;
+}
+@media (max-width: 600px) {
+  .profile-section { padding: 1rem; }
+}
+
+.error-section, .success-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  background: #f8fafc;
+}
+.error-content, .success-content {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+.error-illustration, .success-illustration {
+  width: 120px;
+  margin-bottom: 1rem;
+}
+
+/* Center the create/edit reminder form on the page */
+.reminder-form-section {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f8fafc;
+}
+
+.reminder-form-container {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.reminder-form-container h1 {
+  margin-bottom: 1.5rem;
+  color: #2563eb;
+}
+
+.reminder-form .form-group {
+  margin-bottom: 1.2rem;
+  text-align: left;
+}
+
+.reminder-form .form-group label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+  color: #222;
+}
+
+.reminder-form .form-group input,
+.reminder-form .form-group textarea,
+.reminder-form .form-group select {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.reminder-form .form-group input:focus,
+.reminder-form .form-group textarea:focus,
+.reminder-form .form-group select:focus {
+  border-color: #2563eb;
+}
+
+@media (max-width: 500px) {
+  .reminder-form-container {
+    padding: 1rem;
+  }
+}

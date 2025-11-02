@@ -1,0 +1,46 @@
+<div class="reminder-card <%= reminder.status %>">
+  <div class="reminder-info">
+    <h3><%= reminder.title %></h3>
+    <% if (reminder.description) { %>
+      <p><%= reminder.description %></p>
+    <% } %>
+    <p>
+      <i class="fa fa-calendar"></i>
+      <%= new Date(reminder.dateTime).toLocaleString() %>
+      <% if (reminder.repeat !== 'none') { %>
+        <span class="repeat">| <i class="fa fa-sync"></i> <%= reminder.repeat %></span>
+      <% } %>
+    </p>
+    <p>
+      <i class="fa fa-envelope"></i> <%= reminder.email %>
+    </p>
+    <span class="status <%= reminder.status %>">
+      <% if (reminder.status === 'sent') { %>
+        <i class="fa fa-paper-plane"></i> Sent
+      <% } else if (reminder.status === 'upcoming') { %>
+        <i class="fa fa-clock"></i> Upcoming
+      <% } else if (reminder.status === 'missed') { %>
+        <i class="fa fa-times-circle"></i> Missed
+      <% } else if (reminder.status === 'completed') { %>
+        <i class="fa fa-check-circle"></i> Completed
+      <% } %>
+    </span>
+  </div>
+  <div class="reminder-actions">
+    <a href="/reminders/<%= reminder._id %>/edit" class="btn btn-secondary" title="Edit">
+      <i class="fa fa-edit"></i>
+    </a>
+    <form action="/reminders/<%= reminder._id %>/delete" method="POST" style="display:inline;">
+      <button type="submit" class="btn btn-danger" title="Delete" onclick="return confirm('Delete this reminder?');">
+        <i class="fa fa-trash"></i>
+      </button>
+    </form>
+    <% if (reminder.status === 'upcoming' || reminder.status === 'missed') { %>
+      <form action="/reminders/<%= reminder._id %>/complete" method="POST" style="display:inline;">
+        <button type="submit" class="btn btn-success" title="Mark as Completed">
+          <i class="fa fa-check"></i>
+        </button>
+      </form>
+    <% } %>
+  </div>
+</div>

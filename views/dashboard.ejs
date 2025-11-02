@@ -1,0 +1,59 @@
+
+<section class="dashboard-section">
+  <div class="dashboard-header">
+    <h1>Welcome, <span class="highlight"><%= user ? user.name : '' %></span>!</h1>
+    <p class="dashboard-quote">
+      <i class="fa fa-lightbulb"></i>
+      "Stay organized, stay ahead! Set your reminders and never miss a thing."
+    </p>
+  </div>
+  <div class="dashboard-actions">
+    <a href="/reminders/create" class="btn btn-primary">
+      <i class="fa fa-plus"></i> Create New Reminder
+    </a>
+    <form class="dashboard-search" method="GET" action="/reminders">
+      <input
+        type="text"
+        name="q"
+        placeholder="Search reminders..."
+        value="<%= search %>"
+        aria-label="Search reminders"
+      >
+      <button type="submit" class="btn btn-secondary">
+        <i class="fa fa-search"></i> Search
+      </button>
+    </form>
+  </div>
+  <div class="dashboard-reminders">
+    <h2>Upcoming Reminders</h2>
+    <% if (reminders.length === 0) { %>
+      <p class="no-reminders">
+        <i class="fa fa-calendar-times"></i> No reminders yet. Start by creating one!
+      </p>
+    <% } else { %>
+      <ul class="reminder-list">
+        <% reminders.forEach(function(reminder) { %>
+          <li>
+            <span class="reminder-title"><%= reminder.title %></span>
+            <span class="reminder-date"><%= reminder.date %></span>
+          </li>
+        <% }) %>
+      </ul>
+    <% } %>
+  </div>
+</section>
+
+<div class="dashboard-reminders">
+  <h2>Upcoming Reminders</h2>
+  <% if (reminders && reminders.length === 0) { %>
+    <p class="no-reminders">
+      <i class="fa fa-calendar-times"></i> No reminders yet. Start by creating one!
+    </p>
+  <% } else { %>
+    <div class="reminders-list">
+      <% reminders.forEach(function(reminder) { %>
+        <%- include('reminders/_reminderCard', { reminder: reminder }) %>
+      <% }) %>
+    </div>
+  <% } %>
+</div>

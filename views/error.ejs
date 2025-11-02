@@ -1,0 +1,14 @@
+
+<section class="error-section">
+  <div class="error-content">
+    <img src="/images/error-illustration.jpg" alt="Error" class="error-illustration" style="max-width:180px;margin-bottom:1rem;">
+    <h1><i class="fa fa-exclamation-triangle" style="color:#ef4444"></i> <%= title || "Oops! Something went wrong." %></h1>
+    <p><%= message || "Sorry, an unexpected error occurred. Please try again later." %></p>
+    <a href="/dashboard" class="btn btn-primary" style="margin-top:1rem;">
+      <i class="fa fa-arrow-left"></i> Go Back to Dashboard
+    </a>
+    <p style="margin-top:1.5rem;color:#888;font-size:0.95rem;">
+      If this keeps happening, <a href="mailto:support@email-reminder.com">contact support</a>.
+    </p>
+  </div>
+</section>

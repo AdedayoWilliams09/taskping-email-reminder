@@ -1,0 +1,77 @@
+
+<section class="reminders-section">
+  <h1>My Reminders</h1>
+  <%- include('../partials/alerts') %>
+  <div class="reminders-actions">
+    <a href="/reminders/create" class="btn btn-primary">
+      <i class="fa fa-plus"></i> New Reminder
+    </a>
+    <form method="GET" action="/reminders" class="reminders-filter" style="display:inline-block; margin-left:1rem;">
+      <select name="status" onchange="this.form.submit()">
+        <option value="">All</option>
+        <option value="upcoming" <%= filter === 'upcoming' ? 'selected' : '' %>>Upcoming</option>
+        <option value="completed" <%= filter === 'completed' ? 'selected' : '' %>>Completed</option>
+        <option value="missed" <%= filter === 'missed' ? 'selected' : '' %>>Missed</option>
+        <option value="sent" <%= filter === 'sent' ? 'selected' : '' %>>Sent</option>
+      </select>
+      <input type="text" name="q" value="<%= search %>" placeholder="Search reminders..." style="margin-left:0.5rem;" />
+      <button type="submit" class="btn btn-secondary" style="margin-left:0.5rem;">
+        <i class="fa fa-search"></i> Search
+      </button>
+    </form>
+  </div>
+  <div class="reminders-list">
+    <% if (reminders.length === 0) { %>
+      <p>No reminders found.</p>
+    <% } else { %>
+      <% reminders.forEach(function(reminder) { %>
+        <div class="reminder-card <%= reminder.status %>">
+          <div class="reminder-info">
+            <h3><%= reminder.title %></h3>
+            <% if (reminder.description) { %>
+              <p><%= reminder.description %></p>
+            <% } %>
+            <p>
+              <i class="fa fa-calendar"></i>
+              <%= new Date(reminder.dateTime).toLocaleString() %>
+              <% if (reminder.repeat !== 'none') { %>
+                <span class="repeat">| <i class="fa fa-sync"></i> <%= reminder.repeat %></span>
+              <% } %>
+            </p>
+            <p>
+              <i class="fa fa-envelope"></i> <%= reminder.email %>
+            </p>
+            <span class="status <%= reminder.status %>">
+              <% if (reminder.status === 'sent') { %>
+                <i class="fa fa-paper-plane"></i> Sent
+              <% } else if (reminder.status === 'upcoming') { %>
+                <i class="fa fa-clock"></i> Upcoming
+              <% } else if (reminder.status === 'missed') { %>
+                <i class="fa fa-times-circle"></i> Missed
+              <% } else if (reminder.status === 'completed') { %>
+                <i class="fa fa-check-circle"></i> Completed
+              <% } %>
+            </span>
+          </div>
+          <div class="reminder-actions">
+            <a href="/reminders/<%= reminder._id %>/edit" class="btn btn-secondary" title="Edit">
+              <i class="fa fa-edit"></i>
+            </a>
+            <form action="/reminders/<%= reminder._id %>/delete" method="POST" style="display:inline;">
+              <button type="submit" class="btn btn-danger" title="Delete" onclick="return confirm('Delete this reminder?');">
+                <i class="fa fa-trash"></i>
+              </button>
+            </form>
+            <% if (reminder.status === 'upcoming' || reminder.status === 'missed') { %>
+              <form action="/reminders/<%= reminder._id %>/complete" method="POST" style="display:inline;">
+                <button type="submit" class="btn btn-success" title="Mark as Completed">
+                  <i class="fa fa-check"></i>
+                </button>
+              </form>
+            <% } %>
+          </div>
+        </div>
+      <% }) %>
+    <% } %>
+  </div>
+</section>
