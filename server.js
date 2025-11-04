@@ -63,6 +63,9 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
 // ----- ROUTES -----
 app.use('/', indexRoutes);
 app.use('/', authRoutes);

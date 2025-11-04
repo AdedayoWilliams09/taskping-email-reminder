@@ -164,6 +164,7 @@ cd taskping-email-reminder
 
 * Edit Reminder
 * GET /reminders/:id/edit (form)
+- For the post request include the parameters in postman
 * POST /reminders/:id/edit
 * Body: title, description, dateTime, email, repeat
 * Response: Redirects to /reminders on success
@@ -179,7 +180,7 @@ cd taskping-email-reminder
 * dateTime: 2024-06-12T09:00
 * email: john@example.com
 * repeat: yearly
-* Expected Response: Redirects to /reminders on success
+
 
 * Delete Reminder
 * POST /reminders/:id/delete
